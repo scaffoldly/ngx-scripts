@@ -5,24 +5,24 @@ jobs:
   build:
     strategy:
       matrix:
-        platform: [ubuntu-latest, macos-latest, windows-latest]
-        node-version: ['10', '>=14']
+        platform: [ubuntu-latest]
+        node-version: ["10", ">=14"]
 
     name: ${{ matrix.platform }} / Node.js v${{ matrix.node-version }}
     runs-on: ${{ matrix.platform }}
     steps:
       # Needed to avoid issues with Prettier
-    - run: git config --global core.autocrlf false
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: Install dependencies and run tests
-      run: |
-        npm ci
-        npm test
-      env:
-        CI: true
+      - run: git config --global core.autocrlf false
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies and run tests
+        run: |
+          npm ci
+          npm test
+        env:
+          CI: true
 
   build_all:
     if: always()
@@ -32,3 +32,10 @@ jobs:
       - name: Check build matrix status
         if: ${{ needs.build.result != 'success' }}
         run: exit 1
+      - name: Bump version
+        if: github.ref == 'refs/heads/main'
+        uses: "scaffoldly/github-action-bump-version-npm@master"
+        with:
+          tag-prefix: ""
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

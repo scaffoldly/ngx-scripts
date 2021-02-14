@@ -1,8 +1,8 @@
 {
-  "name": "@ngx-rocket/scripts",
-  "version": "5.0.0",
-  "description": "Support scripts for ngX-Rocket projects",
-  "repository": "ngx-rocket/scripts",
+  "name": "@scaffoldly/ngx-scripts",
+  "version": "5.0.1",
+  "description": "Support scripts for ngX-Rocket projects (Scaffoldly Fork for @ngx-rocket/scripts with JSON Support)",
+  "repository": "scaffoldly/ngx-scripts",
   "main": "index.js",
   "bin": {
     "ngx-scripts": "./bin/ngx-scripts"
@@ -29,9 +29,9 @@
     "url": "https://twitter.com/sinedied"
   },
   "license": "MIT",
-  "homepage": "https://github.com/ngx-rocket/scripts",
+  "homepage": "https://github.com/scaffoldly/ngx-scripts",
   "bugs": {
-    "url": "https://github.com/ngx-rocket/scripts/issues"
+    "url": "https://github.com/scaffoldly/ngx-scripts/issues"
   },
   "dependencies": {
     "@ngx-rocket/ascii-logo": "^1.1.0",
