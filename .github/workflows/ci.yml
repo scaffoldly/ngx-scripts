@@ -32,6 +32,7 @@ jobs:
       - name: Check build matrix status
         if: ${{ needs.build.result != 'success' }}
         run: exit 1
+      - uses: actions/checkout@v2
       - name: Bump version
         if: github.ref == 'refs/heads/main'
         uses: "scaffoldly/github-action-bump-version-npm@master"
