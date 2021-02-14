@@ -11,7 +11,9 @@
     "lint": "xo \"*.js\" \"bin/*.js\"",
     "lint:fix": "npm run lint -s -- --fix",
     "test": "npm run lint -s",
-    "release:check": "semantic-release --dry-run"
+    "prepublishOnly": "npm test",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push origin HEAD:master && git push --tags"
   },
   "keywords": [
     "ngx",
