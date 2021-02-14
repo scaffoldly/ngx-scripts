@@ -1,6 +1,6 @@
 {
   "name": "@scaffoldly/ngx-scripts",
-  "version": "5.0.2",
+  "version": "5.0.3",
   "description": "Support scripts for ngX-Rocket projects (Scaffoldly Fork for @ngx-rocket/scripts with JSON Support)",
   "repository": "scaffoldly/ngx-scripts",
   "main": "index.js",
